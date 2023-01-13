@@ -40,12 +40,11 @@ a, a:visited{
 }
 .main{
     grid-area: main;
-}
-.aside{
-    grid-area: aside;
+    padding-bottom: 20px;
 }
 .footer{
     grid-area: footer;
+    background-color: teal;
 }
 /* grid area define */
 .outer-wrapper{
@@ -54,6 +53,8 @@ a, a:visited{
     grid-template-areas: 
     "nav    nav    nav    nav"
     "header header  header  header"
+    "main   main    main    main"
+    "footer footer  footer  footer"
     ;
 }
 /* header style */
@@ -126,7 +127,26 @@ img.player-img {
 .blog-info h2 {
     color: darkslategrey;
 }
-
+/* main courese area */
+.course-items {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(3, 1fr);
+}
+.course {
+    padding: 20px;
+    box-shadow: rgb(0 0 0 / 16%) 0px 10px 36px 0px, rgb(0 0 0 / 6%) 0px 0px 0px 1px;
+}
+/* footer area css */
+.footer-area {
+    height: 150px;
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    font-size: 30px;
+    justify-content: center;
+    color: #fff;
+}
 /* media query style */
 @media only screen and (max-width: 567px) {
     .container{
@@ -137,6 +157,8 @@ img.player-img {
         grid-template-areas: 
         "nav"
         "header"
+        "main"
+        "footer"
         ;
     }
     /* navigation */
@@ -159,9 +181,16 @@ img.player-img {
         gap: 10px;
         grid-template-columns: repeat(1, 1fr);
     }
+    /* courses sm style */
+    .course-items {
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .footer-area {
+        text-align: center;
+    }
 }   
 /* medium device media query */
-@media only screen and (min-width: 577px) and (max-width: 1000px) {
+@media only screen and (min-width: 577px) and (max-width: 992px) {
     .container{
         width: 100%;
         margin: 0 auto;
@@ -170,6 +199,8 @@ img.player-img {
         grid-template-areas: 
         "nav"
         "header"
+        "main"
+        "footer"
         ;
     }
     .top-players {
@@ -188,5 +219,9 @@ img.player-img {
         padding: 10px;
         gap: 10px;
         grid-template-columns: repeat(1, 1fr);
+    }
+    /* courses md style */
+    .course-items {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
